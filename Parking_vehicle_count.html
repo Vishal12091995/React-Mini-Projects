@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>React App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let car = 0;
+      let bike = 0;
+      let scooty = 0;
+      let bicycle = 0;
+
+      const increase = (vehicle) => {
+        vehicle += 1;
+        return vehicle;
+      };
+
+      const decrease = (vehicle) => {
+        if (vehicle > 0) {
+          vehicle -= 1;
+        }
+        return vehicle;
+      };
+
+      const App = () => (
+        <>
+          <p>List of all the vehicles count in the parking.</p>
+          <ol>
+            <li>
+              <p>
+                <b>Car: {car} </b> &emsp;
+                <button onClick={() => { car = increase(car); rootElement.render(<App />); }}>
+                  Increase
+                </button>
+                <button onClick={() => { car = decrease(car); rootElement.render(<App />); }}>
+                  Decrease
+                </button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Bike: {bike} </b> &emsp;
+                <button onClick={() => { bike = increase(bike); rootElement.render(<App />); }}>
+                  Increase
+                </button>
+                <button onClick={() => { bike = decrease(bike); rootElement.render(<App />); }}>
+                  Decrease
+                </button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Scooty: {scooty} </b> &emsp;
+                <button onClick={() => { scooty = increase(scooty); rootElement.render(<App />); }}>
+                  Increase
+                </button>
+                <button onClick={() => { scooty = decrease(scooty); rootElement.render(<App />); }}>
+                  Decrease
+                </button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Bicycle: {bicycle}</b> &emsp;
+                <button onClick={() => { bicycle = increase(bicycle); rootElement.render(<App />); }}>
+                  Increase
+                </button>
+                <button onClick={() => { bicycle = decrease(bicycle); rootElement.render(<App />); }}>
+                  Decrease
+                </button>
+              </p>
+            </li>
+          </ol>
+        </>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
